@@ -13,9 +13,9 @@ class ConfigsSeeder extends Seeder
     {
        DB::table('configs')->insert([
             [
-               'title' => 'example',
-               'key' => 'example_key',
-               'value' => 'example_value',
+               'title' => 'Email администратора',
+               'key' => 'admin',
+               'value' => 'vladislav.tkachenko@rocketstation.ru',
             ],
         ]);
     }

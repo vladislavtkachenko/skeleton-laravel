@@ -6,34 +6,25 @@ use AdminColumn;
 use AdminDisplay;
 use AdminForm;
 use AdminFormElement;
-use App\Models\Seo;
-use Illuminate\Database\Eloquent\Model;
 use SleepingOwl\Admin\Contracts\Initializable;
 use SleepingOwl\Admin\Form\FormElements;
 use SleepingOwl\Admin\Section;
 
 class Users extends Section implements Initializable
 {
+    protected $checkAccess = true;
+
     public function initialize()
     {
         $this->title = 'Пользователи';
         $this->icon = 'fa fa-users-o';
     }
 
-    public function isCreatable()
-    {
-        return false;
-    }
-
-    public function isDeletable(Model $model)
-    {
-        return true;
-    }
-
     public function onDisplay()
     {
         return AdminDisplay::datatables()
             ->setColumns([
+                AdminColumn::text('id', 'Id'),
                 AdminColumn::text('email', 'Email'),
                 AdminColumn::text('name', 'Имя'),
                 AdminColumn::datetime('created_at', 'Зарегистрирован'),
@@ -56,4 +47,9 @@ class Users extends Section implements Initializable
 
         return AdminForm::panel()->addBody($tabs);
     }
+
+    /**
+     * @return void
+     */
+    public function onDelete($id)  {}
 }

@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5273b6cf5e1922f31134ba91272d46bb",
+    "content-hash": "69e9b7e8ff3546ba3a7e1be13fd54e2f",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -195,6 +195,52 @@
                 }
             ],
             "time": "2016-06-13T19:28:20+00:00"
+        },
+        {
+            "name": "bestmomo/nice-artisan",
+            "version": "V1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bestmomo/nice-artisan.git",
+                "reference": "3b7f88e5ee48914f5d45d3ac06fb074ba4a19884"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bestmomo/nice-artisan/zipball/3b7f88e5ee48914f5d45d3ac06fb074ba4a19884",
+                "reference": "3b7f88e5ee48914f5d45d3ac06fb074ba4a19884",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.4",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bestmomo\\NiceArtisan\\NiceArtisanServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bestmomo\\NiceArtisan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bestmomo",
+                    "email": "grandheretique@free.fr",
+                    "homepage": "http://laravel.sillo.org"
+                }
+            ],
+            "description": "Web interface for Laravel Artisan",
+            "homepage": "http://github.com/bestmomo/nice-artisan",
+            "time": "2018-02-04T12:48:38+00:00"
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
@@ -1727,12 +1773,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelRUS/SleepingOwlAdmin.git",
-                "reference": "ea2a8ecf41eeafb3ed7d3e9ece0b9f3748f582d4"
+                "reference": "a979f77bc77fee34ccd61335c21b2e6733806669"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/ea2a8ecf41eeafb3ed7d3e9ece0b9f3748f582d4",
-                "reference": "ea2a8ecf41eeafb3ed7d3e9ece0b9f3748f582d4",
+                "url": "https://api.github.com/repos/LaravelRUS/SleepingOwlAdmin/zipball/a979f77bc77fee34ccd61335c21b2e6733806669",
+                "reference": "a979f77bc77fee34ccd61335c21b2e6733806669",
                 "shasum": ""
             },
             "require": {
@@ -1800,7 +1846,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2018-06-18T15:21:43+00:00"
+            "time": "2018-06-23T15:03:04+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3788,12 +3834,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vladislavtkachenko/extend-owl-admin.git",
-                "reference": "ce0430147626f54148a2e5e8b31808c6328d8955"
+                "reference": "53121ec6a22f276f5d410f5e924b428abc2bb988"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vladislavtkachenko/extend-owl-admin/zipball/ce0430147626f54148a2e5e8b31808c6328d8955",
-                "reference": "ce0430147626f54148a2e5e8b31808c6328d8955",
+                "url": "https://api.github.com/repos/vladislavtkachenko/extend-owl-admin/zipball/53121ec6a22f276f5d410f5e924b428abc2bb988",
+                "reference": "53121ec6a22f276f5d410f5e924b428abc2bb988",
                 "shasum": ""
             },
             "require": {
@@ -3823,7 +3869,7 @@
                 }
             ],
             "description": "Extend Owl Admin",
-            "time": "2018-06-22T08:39:49+00:00"
+            "time": "2018-06-24T14:23:57+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

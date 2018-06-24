@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if(\Schema::hasTable('configs')){
             try {
-                \View::share('config', cache()->rememberForever('config', function () { return Config::all(); }));
+                \View::share('configs', cache()->rememberForever('configs', function () { return Config::all(); }));
             } catch (\Exception $e) { \Log::error($e->getMessage()); }
         }
 

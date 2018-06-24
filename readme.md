@@ -22,11 +22,9 @@ composer install
 
 php artisan key:generate
 
-php artisan migrate --seed   ||   php artisan migrate:fresh --seed (run 'composer du'  - if some errors)
-
-php artisan vendor:publish --provider="VladislavTkachenko\Admin\Providers\ExtendOwlAdminServiceProvider" --force
+php artisan migrate  ||  php artisan migrate:fresh --seed (run 'composer du'  - if some errors)
 
 
 ## Help
 
-php artisan ide-helper:meta && php artisan ide-helper:generate && php artisan sleepingowl:ide:generate && php artisan ide-helper:models
+php artisan ide-helper:meta && php artisan ide-helper:generate && php artisan sleepingowl:ide:generate

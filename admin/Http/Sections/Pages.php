@@ -6,7 +6,6 @@ use AdminColumn;
 use AdminDisplay;
 use AdminForm;
 use AdminFormElement;
-use App\Models\Seo;
 use Illuminate\Database\Eloquent\Model;
 use SleepingOwl\Admin\Contracts\Initializable;
 use SleepingOwl\Admin\Form\FormElements;
@@ -18,10 +17,6 @@ class Pages extends Section implements Initializable
     {
         $this->title = 'Страницы';
         $this->icon = 'fa fa-fw fa-file-text-o';
-
-        $this->updating(function($config, \Illuminate\Database\Eloquent\Model $model) {
-            cache()->flush();
-        });
     }
 
     public function isCreatable()
@@ -39,6 +34,7 @@ class Pages extends Section implements Initializable
         return AdminDisplay::datatables()
             ->setColumns([
                 AdminColumn::text('title', 'Название'),
+                AdminColumn::datetime('updated_at', 'Последнее изменение'),
             ])
             ->setDisplaySearch(1)
             ->paginate(20);
@@ -48,27 +44,22 @@ class Pages extends Section implements Initializable
     {
         $form_main = new FormElements([
             AdminFormElement::text('title', 'Название')->setReadonly(1),
-            AdminFormElement::ckeditor('content_ru', 'Контент ru'),
-            AdminFormElement::ckeditor('content_en', 'Контент en'),
+            AdminFormElement::ckeditor('content', 'Контент'),
         ]);
 
         $tabs = AdminDisplay::tabbed([
             'Общая информация' => $form_main,
             'SEO' => new FormElements([
                 AdminFormElement::columns()
-                    ->addColumn([AdminFormElement::text('seo.title_ru', 'Заголовок (title) ru')])
-                    ->addColumn([AdminFormElement::text('seo.title_en', 'Заголовок (title) en')]),
+                    ->addColumn([AdminFormElement::text('seo.title', 'Заголовок (title)')]),
                 AdminFormElement::columns()
                     ->addColumn([AdminFormElement::text('seo.keywords', 'Ключевые слова (keywords)')]),
                 AdminFormElement::columns()
-                    ->addColumn([AdminFormElement::textarea('seo.description_ru', 'Описание (description) ru')])
-                    ->addColumn([AdminFormElement::textarea('seo.description_en', 'Описание (description) en')]),
+                    ->addColumn([AdminFormElement::textarea('seo.description', 'Описание (description)')]),
                 AdminFormElement::columns()
-                    ->addColumn([AdminFormElement::text('seo.seo_title_ru', 'Заголовок seo текста на странице ru')])
-                    ->addColumn([AdminFormElement::text('seo.seo_title_en', 'Заголовок seo текста на странице en')]),
+                    ->addColumn([AdminFormElement::text('seo.seo_title', 'Заголовок seo текста на странице')]),
                 AdminFormElement::columns()
-                    ->addColumn([AdminFormElement::textarea('seo.seo_text_ru', 'seo текст на странице ru')])
-                    ->addColumn([AdminFormElement::textarea('seo.seo_text_en', 'seo текст на странице en')]),
+                    ->addColumn([AdminFormElement::textarea('seo.seo_text', 'seo текст на странице')]),
             ])
         ]);
 

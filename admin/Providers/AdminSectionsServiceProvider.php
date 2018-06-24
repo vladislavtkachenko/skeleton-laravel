@@ -3,9 +3,11 @@
 namespace Admin\Providers;
 
 use Admin\Http\Sections\Configs;
+use Admin\Http\Sections\Contacts;
 use Admin\Http\Sections\Pages;
 use Admin\Http\Sections\Users;
 use App\Models\Config;
+use App\Models\Contact;
 use App\Models\Page;
 use App\Models\User;
 use SleepingOwl\Admin\Providers\AdminSectionsServiceProvider as ServiceProvider;
@@ -28,7 +30,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
         Config::class => Configs::class,
         Page::class => Pages::class,
         User::class => Users::class,
-
+        Contact::class => Contacts::class,
     ];
 
     /**
@@ -44,12 +46,10 @@ class AdminSectionsServiceProvider extends ServiceProvider
         $this->app->call( [ $this, 'registerRoutes' ] );
         $this->app->call( [ $this, 'registerNavigation' ] );
 
-        $this->app->call( [ $this, 'registerViews' ] );
-        $this->app->call( [ $this, 'registerMediaPackages' ] );
-
         parent::boot( $admin );
 
-
+        $this->app->call( [ $this, 'registerViews' ] );
+        $this->app->call( [ $this, 'registerMediaPackages' ] );
     }
 
     /**
