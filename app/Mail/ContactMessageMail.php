@@ -29,6 +29,7 @@ class ContactMessageMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.contact', ['data' => $this->data]);
+        return $this->view('mail.contact', ['data' => $this->data])
+            ->subject('Новое обращение');
     }
 }
