@@ -27,7 +27,7 @@ php artisan serve   # open site http://localhost:8000
 
 ## Windows
 
-Install OpenServer <a href="https://ospanel.io/">OpenServer</a>.<br>
+Install <a href="https://ospanel.io/">OpenServer</a>.<br>
 Install laravel.<br>
 Open site from OpenServer.
 
