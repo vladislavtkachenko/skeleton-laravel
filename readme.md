@@ -6,25 +6,49 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Deploy
+# Install
 
-php artisan deploy
-
-Смотри файл config/deploy.php ! секцию hosts. Если указан stage, то 
-
-php artisan deploy {stage}
-
-## Install back
-
-*copy .env
-
+```sh
+copy .env.example .env          # set setings for database in .env
 composer install
-
 php artisan key:generate
+php artisan migrate:fresh --seed
+npm install
+```
 
-php artisan migrate  ||  php artisan migrate:fresh --seed (run 'composer du'  - if some errors)
+# Development
+
+## Linux
+
+```sh
+npm run hot
+php artisan serve   # open site http://localhost:8000
+```
+
+## Windows
+
+Install OpenServer <a href="https://ospanel.io/">OpenServer</a>.<br>
+Install laravel.<br>
+Open site from OpenServer.
+
+```
+npm run hot     # for start frontend
+```
+
+# Deploy
+
+```sh
+php artisan deploy
+```
+
+Смотри файл config/deploy.php ! секцию hosts. Если указан stage, то
+``` 
+php artisan deploy {stage}
+```
 
 
-## Help
+# Generate helpers
 
+```
 php artisan ide-helper:meta && php artisan ide-helper:generate && php artisan sleepingowl:ide:generate
+```
