@@ -40,38 +40,22 @@ const sassExtractor = () => {
   }));
 };
 
-
-
-// Костыль, так как внутри mix.webpackConfig работает merge-webpack и он не корректно мержит
 Mix.listen('configReady', function(webpackConfig){
-
-  if(Mix.isUsing('hmr')){
-    webpackConfig.output.path = "/"
-  }
-
-  webpackConfig.module.rules.forEach((rule, index, list) => {
-    if(String(rule.test) == String(/\.css$/)){
-      list[index] = {
-        test: /\.css$/,
-        loaders: sassExtractor()
-      }
-    }
-    if(String(rule.test) == String(/\.s[ac]ss$/)){
-      list[index] = {
-        test: /\.s[ac]ss$/,
-        loaders: sassExtractor()
-      }
-    }
-  })
+  // тут можно переопределить конфиг, если не правильно отпработал mix.webpackConfig()
 })
 
 mix.webpackConfig({
-  output: {
-    publicPath: Mix.isUsing('hmr') ? '//localhost:3030/' : '/',
-    chunkFilename: 'js/chunks/[name].[hash].js',
-  },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        loaders: sassExtractor()
+      },
+      {
+        test: /\.s[ac]ss$/,
+        exclude: [],
+        loaders: sassExtractor()
+      },
       {
         // only include svg that doesn't have font in the path or file name by using negative lookahead
         test: /(\.(png|jpe?g|gif)$|^((?!font).)*\.svg$)/,
@@ -104,12 +88,7 @@ mix.webpackConfig({
               },
               publicPath: Config.resourceRoot
             }
-          },
-
-          {
-            loader: 'img-loader',
-            options: Config.imgLoaderOptions
-          },
+          }
         ]
       },
 

@@ -6,7 +6,9 @@
         "targets": {
           "browsers": [
             "last 4 versions",
-            "ie >= 11"
+            "ie >= 10",
+            "safari >= 9",
+            "ios >= 9"
           ]
         },
         "useBuiltIns": true

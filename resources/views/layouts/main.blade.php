@@ -8,14 +8,14 @@
     <meta name="keywords" content="@yield('keywords')" />
     <meta name="description" content="@yield('description')" />
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{mix('css/app.css')}}">
+    <link rel="stylesheet" href="{{mix('/css/app.css')}}">
 </head>
 <body>
 <div id="app">
     @yield('content')
 </div>
-<script src="{{mix('js/manifest.js')}}"></script>
-<script src="{{mix('js/vendor.js')}}"></script>
-<script src="{{mix('js/app.js')}}"></script>
+<script src="{{mix('/js/manifest.js')}}"></script>
+<script src="{{mix('/js/vendor.js')}}"></script>
+<script src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>
