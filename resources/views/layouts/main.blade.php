@@ -8,14 +8,21 @@
     <meta name="keywords" content="@yield('keywords')" />
     <meta name="description" content="@yield('description')" />
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{mix('/css/app.css')}}">
+    {{-- <link rel="stylesheet" href="{{mix('webpack/vendors.css')}}"> --}}
+    <link rel="stylesheet" href="{{mix('webpack/app.css')}}">
 </head>
 <body>
-<div id="app">
-    @yield('content')
+<div class="wrapper" id="app">
+    <div class="content">
+        @include('layouts.header')
+        <main class="main">
+            @yield('content')
+        </main>
+    </div>
+    @include('layouts.footer')
 </div>
-<script src="{{mix('/js/manifest.js')}}"></script>
-<script src="{{mix('/js/vendor.js')}}"></script>
-<script src="{{mix('/js/app.js')}}"></script>
+<script src="{{mix('webpack/manifest.js')}}" async defer></script>
+<script src="{{mix('webpack/vendors.js')}}" async defer></script>
+<script src="{{mix('webpack/app.js')}}" async defer></script>
 </body>
 </html>
