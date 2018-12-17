@@ -1,5 +1,3 @@
-export default {
-  init() {
-    console.log('INIT BLOCKS')
-  }
-}
+export default () => {
+  console.log('init blocks');
+};
