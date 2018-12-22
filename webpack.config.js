@@ -28,7 +28,8 @@ const SERVER_PORT = 3000;
 /**
  * Webpack config variables
  */
-const PATH_ASSET = IS_PRODUCTION ? '/webpack/' : `http://${SERVER_HOST}:${SERVER_PORT}/webpack/`;
+const PATH_BASE = '/webpack/'
+const PATH_ASSET = IS_PRODUCTION ? PATH_BASE : `http://${SERVER_HOST}:${SERVER_PORT}${PATH_BASE}`;
 const PATH_SRC = path.resolve(__dirname, 'resources', 'webpack');
 const PATH_BUILD = path.resolve(__dirname, 'public','webpack');
 const PATH_PUBLIC = path.resolve(__dirname, 'public');
@@ -140,24 +141,16 @@ const config = {
       name: "manifest",
     },
   },
-  stats: {
-    assets: true,
-    colors: true,
-    errors: true,
-    errorDetails: true,
-    hash: true,
-  },
+
   module: {
     rules: [
       {
         test: /\.(js|jsx|es6)$/,
         loader: 'babel-loader',
         options: {
-          cacheDirectory: true,
+          configFile: path.resolve(__dirname, 'babel.config.js'),
         },
-        exclude: [
-          path.resolve(__dirname, 'node_modules'),
-        ],
+        exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file),
       },
       {
         test: /\.vue$/,
@@ -245,15 +238,43 @@ const config = {
 
   resolve: {
     modules: [
+      'node_modules',
       path.resolve(__dirname, 'node_modules'),
       path.resolve(PATH_SRC),
     ],
+    // alias: {
+    //   vue$: 'vue/dist/vue.common.js',
+    // },
     extensions: ['*', '.js', '.es6', '.jsx', '*.vue', '.css', '.scss', '.sass'],
   },
 
-  devtool: IS_PRODUCTION ? 'hidden-source-map' : 'source-map',
+  devtool: IS_PRODUCTION ? 'none' : 'inline-cheap-source-map',
+
+  stats: {
+    // copied from `'minimal'`
+    all: false,
+    modules: true,
+    maxModules: 0,
+    errors: true,
+    warnings: true,
+    // our additional options
+    moduleTrace: true,
+    errorDetails: true,
+  },
 
   devServer: {
+    stats: {
+      // copied from `'minimal'`
+      all: false,
+      modules: true,
+      maxModules: 0,
+      errors: true,
+      warnings: true,
+      // our additional options
+      moduleTrace: true,
+      errorDetails: true,
+    },
+    clientLogLevel: 'error',
     host: SERVER_HOST,
     port: SERVER_PORT,
     headers: { 'Access-Control-Allow-Origin': '*' },
@@ -282,7 +303,7 @@ config.plugins.push(
   new ManifestPlugin({
     fileName: path.resolve(PATH_PUBLIC, 'mix-manifest.json'),
     publicPath: PATH_ASSET,
-    basePath: '/webpack/',
+    basePath: PATH_BASE,
     writeToFileEmit: true,
   }),
 );
