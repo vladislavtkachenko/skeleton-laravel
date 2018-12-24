@@ -245,7 +245,7 @@ const config = {
     // alias: {
     //   vue$: 'vue/dist/vue.common.js',
     // },
-    extensions: ['*', '.js', '.es6', '.jsx', '*.vue', '.css', '.scss', '.sass'],
+    extensions: ['*', '.js', '.es6', '.jsx', '.vue', '.css', '.scss', '.sass'],
   },
 
   devtool: IS_PRODUCTION ? 'none' : 'inline-cheap-source-map',
