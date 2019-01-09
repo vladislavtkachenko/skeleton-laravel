@@ -62,3 +62,7 @@ php artisan deploy {stage}
 - php artisan sleepingowl:ide:generate
 - php artisan ide-helper:models
 ```
+
+#Почта
+
+/mails-viewer - Чтобы просмотреть список писем и их представления

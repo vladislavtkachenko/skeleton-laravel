@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f65e7c9b62c2818751c453fbd711782c",
+    "content-hash": "67f4a3958a04942c907130e48d842813",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1795,6 +1795,57 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "joggapp/laravel-mail-viewer",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JoggApp/laravel-mail-viewer.git",
+                "reference": "9db0ee96d216f262d7558fe3a49603fdc69c15bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JoggApp/laravel-mail-viewer/zipball/9db0ee96d216f262d7558fe3a49603fdc69c15bf",
+                "reference": "9db0ee96d216f262d7558fe3a49603fdc69c15bf",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.6.*|5.7.*",
+                "illuminate/routing": "5.6.*|5.7.*",
+                "illuminate/support": "5.6.*|5.7.*",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "^7.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JoggApp\\MailViewer\\MailViewerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JoggApp\\MailViewer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harish Toshniwal",
+                    "email": "harish@jogg.co"
+                }
+            ],
+            "description": "View all your mailables at a single place",
+            "time": "2018-12-04T18:40:26+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
