@@ -66,3 +66,16 @@ php artisan deploy {stage}
 #Почта
 
 /mails-viewer - Чтобы просмотреть список писем и их представления
+
+
+#Изображение схемы БД
+
+Чтобы сгенерировать изображение нужно установить
+
+```
+sudo apt-get install graphviz
+```
+
+Затем выполнить
+
+php artisan generate:erd schema.png
