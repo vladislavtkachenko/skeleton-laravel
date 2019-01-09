@@ -78,4 +78,6 @@ sudo apt-get install graphviz
 
 Затем выполнить
 
+```
 php artisan generate:erd schema.png
+```
