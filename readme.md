@@ -39,6 +39,7 @@ npm run hot     # for start frontend
 # Deploy
 
 <h5>FOR FIRST DEPLOY</h5>
+
 ```
 php artisan deploy {stage} -o git_tty=true
 ```
