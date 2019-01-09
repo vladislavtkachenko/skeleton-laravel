@@ -17,6 +17,7 @@
         "laravelium/sitemap": "3.0.*",
         "laravelrus/sleepingowl": "^5.6",
         "lorisleiva/laravel-deployer": "^0.2.5",
+        "maatwebsite/excel": "^3.1",
         "nunomaduro/collision": "^2.1",
         "spatie/laravel-medialibrary": "^7.5",
         "vladislavtkachenko/extend-owl-admin": "dev-master"
