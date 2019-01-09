@@ -14,10 +14,11 @@
         "fzaninotto/faker": "^1.4",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
+        "laravelium/sitemap": "3.0.*",
         "laravelrus/sleepingowl": "^5.6",
         "lorisleiva/laravel-deployer": "^0.2.5",
         "nunomaduro/collision": "^2.1",
-        "laravelium/sitemap": "3.0.*",
+        "spatie/laravel-medialibrary": "^7.5",
         "vladislavtkachenko/extend-owl-admin": "dev-master"
     },
     "require-dev": {
