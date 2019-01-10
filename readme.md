@@ -14,6 +14,7 @@ composer install
 php artisan key:generate
 php artisan migrate:fresh --seed
 npm install
+npm run build
 ```
 
 # Development
@@ -37,6 +38,12 @@ npm run hot     # for start frontend
 
 # Deploy
 
+<h5>FOR FIRST DEPLOY</h5>
+
+```
+php artisan deploy {stage} -o git_tty=true
+```
+
 ```sh
 php artisan deploy
 ```
@@ -50,5 +57,27 @@ php artisan deploy {stage}
 # Generate helpers
 
 ```
-php artisan ide-helper:meta && php artisan ide-helper:generate && php artisan sleepingowl:ide:generate
+- php artisan ide-helper:meta 
+- php artisan ide-helper:generate 
+- php artisan sleepingowl:ide:generate
+- php artisan ide-helper:models
+```
+
+# Почта
+
+/mails-viewer - Чтобы просмотреть список писем и их представления
+
+
+# Изображение схемы БД
+
+Чтобы сгенерировать изображение нужно установить
+
+```
+sudo apt-get install graphviz
+```
+
+Затем выполнить
+
+```
+php artisan generate:erd schema.png
 ```
